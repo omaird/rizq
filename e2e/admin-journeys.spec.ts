@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
 
 // Test credentials (admin user)
-const TEST_EMAIL = "omairdawood@gmail.com";
-const TEST_PASSWORD = "omair123";
+const TEST_EMAIL = process.env.E2E_ADMIN_EMAIL ?? "admin@example.com";
+const TEST_PASSWORD = process.env.E2E_ADMIN_PASSWORD ?? "";
 
 // Helper function to generate unique test journey names
 const generateTestJourneyName = () => `Test Journey ${Date.now()}`;

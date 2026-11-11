@@ -75,6 +75,20 @@ describe('user_profiles self-promotion guard', () => {
     await assertFails(updateDoc(doc(user, 'user_profiles/user-1'), { isAdmin: true }));
   });
 
+  it('user CAN create their own profile without admin', async () => {
+    const user = env.authenticatedContext('user-2').firestore();
+    await assertSucceeds(setDoc(doc(user, 'user_profiles/user-2'), {
+      userId: 'user-2', isAdmin: false, streak: 0, totalXp: 0, level: 1,
+    }));
+  });
+
+  it('user CANNOT create their own profile with isAdmin true', async () => {
+    const user = env.authenticatedContext('user-3').firestore();
+    await assertFails(setDoc(doc(user, 'user_profiles/user-3'), {
+      userId: 'user-3', isAdmin: true, streak: 0, totalXp: 0, level: 1,
+    }));
+  });
+
   it('admin CAN set isAdmin on another user', async () => {
     await env.withSecurityRulesDisabled(async (ctx) => {
       await setDoc(doc(ctx.firestore(), 'user_profiles/admin-1'), {

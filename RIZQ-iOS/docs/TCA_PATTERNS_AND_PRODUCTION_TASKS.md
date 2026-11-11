@@ -195,8 +195,8 @@ case .onAppear:
     // DEMO DATA - TO BE REPLACED
     let demoUser = AuthUser(
       id: "demo-user-001",
-      email: "omairdawood@gmail.com",
-      name: "Omar Dawood",
+      email: "demo@rizq.app",
+      name: "Demo User",
       image: nil,
       emailVerified: true
     )

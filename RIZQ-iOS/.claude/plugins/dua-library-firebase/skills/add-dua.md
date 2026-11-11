@@ -68,7 +68,7 @@ Create a temporary JSON file and run the admin script:
 ```
 
 ```bash
-cd /Users/omairdawood/Projects/RIZQ\ App && node scripts/add-dua.cjs dua-to-add.json
+cd "$(git rev-parse --show-toplevel)" && node scripts/add-dua.cjs dua-to-add.json
 ```
 
 ## Validation Checklist

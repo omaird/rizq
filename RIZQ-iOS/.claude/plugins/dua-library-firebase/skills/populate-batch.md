@@ -10,7 +10,7 @@ This skill helps populate multiple duas from documentation into Firebase Firesto
 ## Source Documentation
 
 The main dua library documentation is at:
-`/Users/omairdawood/Projects/RIZQ App/dua library.md`
+`<repo root>/dua library.md`
 
 ## Batch Operation Strategy
 
@@ -72,7 +72,7 @@ Duas in the library doc follow this structure:
 ## Running Batch Script
 
 ```bash
-cd /Users/omairdawood/Projects/RIZQ\ App && node scripts/batch-add-duas.cjs batch-duas.json
+cd "$(git rev-parse --show-toplevel)" && node scripts/batch-add-duas.cjs batch-duas.json
 ```
 
 ## Pre-Population Checks

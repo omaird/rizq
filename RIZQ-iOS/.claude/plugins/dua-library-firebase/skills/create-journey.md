@@ -95,7 +95,7 @@ estimatedMinutes = Math.ceil(journeyDuas.reduce((sum, jd) => {
 ## Adding via Firebase Admin Script
 
 ```bash
-cd /Users/omairdawood/Projects/RIZQ\ App && node scripts/add-journey.cjs journey-to-add.json
+cd "$(git rev-parse --show-toplevel)" && node scripts/add-journey.cjs journey-to-add.json
 ```
 
 ## Journey Theme Ideas

@@ -21,7 +21,7 @@ You execute exactly ONE item from a RIZQ plan doc and return when it's verified,
 
 When invoked, you must be given:
 
-- **`plan_path`** — absolute path to the plan doc (e.g., `/Users/omairdawood/Projects/RIZQ App/docs/audit/2026-05-12-audit-execution-plan.md`)
+- **`plan_path`** — absolute path to the plan doc (e.g., `<repo root>/docs/audit/2026-05-12-audit-execution-plan.md`)
 - **`item_number`** — the numeric ID of the item to execute (e.g., `7` for `#07`)
 - **`branch`** — the branch name you should work on (e.g., `audit/full-sweep`)
 - **`agent_id`** — your dispatching ID, used in the plan doc's `[~]` marker
