@@ -190,7 +190,7 @@ cat > /tmp/journey.json << 'EOF'
 }
 EOF
 
-cd /Users/omairdawood/Projects/RIZQ\ App && node scripts/add-journey.cjs /tmp/journey.json
+cd "$(git rev-parse --show-toplevel)" && node scripts/add-journey.cjs /tmp/journey.json
 ```
 
 ## Validation Checklist

@@ -107,7 +107,7 @@ cat > /tmp/new-dua.json << 'EOF'
 EOF
 
 # Run the add script
-cd /Users/omairdawood/Projects/RIZQ\ App && node scripts/add-dua.cjs /tmp/new-dua.json
+cd "$(git rev-parse --show-toplevel)" && node scripts/add-dua.cjs /tmp/new-dua.json
 ```
 
 ## Step 7: Confirm Success

@@ -97,7 +97,7 @@ For each gap identified, implement the missing functionality:
 After making changes, verify the build:
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App/RIZQ-iOS" && xcodebuild -scheme RIZQ \
+cd "$(git rev-parse --show-toplevel)/RIZQ-iOS" && xcodebuild -scheme RIZQ \
   -destination 'platform=iOS Simulator,name=iPhone 17' \
   build 2>&1 | grep -E "(error:|BUILD SUCCEEDED|BUILD FAILED)"
 ```

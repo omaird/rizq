@@ -9,7 +9,7 @@ Execute the following commands in sequence and report results:
 ## 1. Web App - Type Checking
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App" && npm run build 2>&1 | head -50
+cd "$(git rev-parse --show-toplevel)" && npm run build 2>&1 | head -50
 ```
 
 **Expected:** Build completes successfully with no TypeScript errors
@@ -17,7 +17,7 @@ cd "/Users/omairdawood/Projects/RIZQ App" && npm run build 2>&1 | head -50
 ## 2. Web App - Linting (if configured)
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App" && npm run lint 2>&1 || echo "Lint script not configured"
+cd "$(git rev-parse --show-toplevel)" && npm run lint 2>&1 || echo "Lint script not configured"
 ```
 
 **Expected:** No linting errors
@@ -25,7 +25,7 @@ cd "/Users/omairdawood/Projects/RIZQ App" && npm run lint 2>&1 || echo "Lint scr
 ## 3. Web App - Tests (if configured)
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App" && npm test 2>&1 || echo "Test script not configured"
+cd "$(git rev-parse --show-toplevel)" && npm test 2>&1 || echo "Test script not configured"
 ```
 
 **Expected:** All tests pass
@@ -33,7 +33,7 @@ cd "/Users/omairdawood/Projects/RIZQ App" && npm test 2>&1 || echo "Test script 
 ## 4. iOS App - Build
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App/RIZQ-iOS" && xcodebuild -scheme RIZQ -destination 'platform=iOS Simulator,name=iPhone 17' build 2>&1 | tail -30
+cd "$(git rev-parse --show-toplevel)/RIZQ-iOS" && xcodebuild -scheme RIZQ -destination 'platform=iOS Simulator,name=iPhone 17' build 2>&1 | tail -30
 ```
 
 **Expected:** Build completes with "BUILD SUCCEEDED"
@@ -41,7 +41,7 @@ cd "/Users/omairdawood/Projects/RIZQ App/RIZQ-iOS" && xcodebuild -scheme RIZQ -d
 ## 5. iOS App - Tests
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App/RIZQ-iOS" && xcodebuild -scheme RIZQ -destination 'platform=iOS Simulator,name=iPhone 17' test 2>&1 | tail -50
+cd "$(git rev-parse --show-toplevel)/RIZQ-iOS" && xcodebuild -scheme RIZQ -destination 'platform=iOS Simulator,name=iPhone 17' test 2>&1 | tail -50
 ```
 
 **Expected:** All tests pass with "TEST SUCCEEDED"
@@ -49,7 +49,7 @@ cd "/Users/omairdawood/Projects/RIZQ App/RIZQ-iOS" && xcodebuild -scheme RIZQ -d
 ## 6. Firebase Rules Validation (if applicable)
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App" && cat firestore.rules 2>/dev/null || echo "No firestore.rules file"
+cd "$(git rev-parse --show-toplevel)" && cat firestore.rules 2>/dev/null || echo "No firestore.rules file"
 ```
 
 **Expected:** Rules file exists and is properly formatted
@@ -57,7 +57,7 @@ cd "/Users/omairdawood/Projects/RIZQ App" && cat firestore.rules 2>/dev/null || 
 ## 7. Git Status Check
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App" && git status --short
+cd "$(git rev-parse --show-toplevel)" && git status --short
 ```
 
 **Expected:** Shows changed files, no unexpected modifications
@@ -90,7 +90,7 @@ After all validations complete, provide a summary report with:
 For quick web-only validation:
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App" && npm run build
+cd "$(git rev-parse --show-toplevel)" && npm run build
 ```
 
 ## Quick Validation (iOS Only)
@@ -98,5 +98,5 @@ cd "/Users/omairdawood/Projects/RIZQ App" && npm run build
 For quick iOS-only validation:
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App/RIZQ-iOS" && xcodebuild -scheme RIZQ -destination 'platform=iOS Simulator,name=iPhone 17' build
+cd "$(git rev-parse --show-toplevel)/RIZQ-iOS" && xcodebuild -scheme RIZQ -destination 'platform=iOS Simulator,name=iPhone 17' build
 ```

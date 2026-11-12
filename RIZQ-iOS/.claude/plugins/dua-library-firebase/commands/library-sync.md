@@ -19,7 +19,7 @@ The sync process:
 ## Source File
 
 Documentation location:
-`/Users/omairdawood/Projects/RIZQ App/dua library.md`
+`<repo root>/dua library.md`
 
 ## Step 1: Read Documentation
 
@@ -107,7 +107,7 @@ cat > /tmp/sync-batch.json << 'EOF'
 EOF
 
 # Run batch sync
-cd /Users/omairdawood/Projects/RIZQ\ App && node scripts/batch-add-duas.cjs /tmp/sync-batch.json
+cd "$(git rev-parse --show-toplevel)" && node scripts/batch-add-duas.cjs /tmp/sync-batch.json
 ```
 
 ## Step 6: Report Results

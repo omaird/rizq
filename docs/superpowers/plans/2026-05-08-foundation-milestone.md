@@ -104,7 +104,7 @@
 - [ ] **Step 1: Cut the milestone branch from main**
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git checkout main
 git pull
 git checkout -b m1-foundation
@@ -573,7 +573,7 @@ Expected: rules tests all green; build succeeds.
 - [ ] **Step 2: Merge to milestone branch**
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git checkout m1-foundation
 git merge --no-ff m1-step1-prep -m "merge: m1 step 1 prep complete"
 git push
@@ -604,7 +604,7 @@ git branch -d m1-step1-prep
 - [ ] **Step 1: Create worktree from milestone branch**
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git worktree add ../rizq-m1-step2-auth -b m1-step2-auth m1-foundation
 cd ../rizq-m1-step2-auth
 ```
@@ -963,7 +963,7 @@ Specifically watch for: `addXp` transaction failure swallowed; `getOrCreateProfi
 - [ ] **Step 3: Merge to milestone branch**
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git checkout m1-foundation
 git merge --no-ff m1-step2-auth -m "merge: m1 step 2 auth cutover complete"
 git push
@@ -990,7 +990,7 @@ git branch -d m1-step2-auth
 - [ ] **Step 1: Cut the Step 3 base branch**
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git checkout m1-foundation
 git checkout -b m1-step3-cutover
 git push -u origin m1-step3-cutover
@@ -1279,7 +1279,7 @@ git commit -m "feat(admin): dual-path admin write hooks (firestore behind cutove
 - [ ] **Step 1: Merge each sub-branch in turn**
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git checkout m1-step3-cutover
 git merge --no-ff m1-step3-read-hooks -m "merge: read hooks dual-path"
 git merge --no-ff m1-step3-user-data-hooks -m "merge: user-data hooks dual-path"
@@ -1369,7 +1369,7 @@ This belongs to Step 4. Continue.
 - [ ] **Step 1**
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git worktree add ../rizq-m1-step4-neon -b m1-step4-decommission-neon m1-foundation
 cd ../rizq-m1-step4-neon
 ```
@@ -1425,7 +1425,7 @@ git commit -m "refactor(web): remove neon dual-path code and decommission @neond
 - [ ] **Step 1**
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git checkout m1-foundation
 git merge --no-ff m1-step4-decommission-neon -m "merge: m1 step 4 decommission neon"
 git push
@@ -1460,7 +1460,7 @@ Deploy `m1-foundation` to production. With Neon code gone, the cutover is final 
 - [ ] **Step 1**
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git checkout m1-foundation
 git checkout -b m1-step5-ios
 git push -u origin m1-step5-ios
@@ -1824,7 +1824,7 @@ git commit -m "feat(ios): add CachedContentClient wrapper with last-known-good f
 - [ ] **Step 1: Merge both branches**
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git checkout m1-step5-ios
 git merge --no-ff m1-step5-content-feature -m "merge: ContentFeature reducer"
 git merge --no-ff m1-step5-cache-wrapper -m "merge: CachedContentClient wrapper"
@@ -2005,7 +2005,7 @@ git commit -m "chore(ios): remove debug banners and redundant onAppear triggers 
 - [ ] **Step 3: Merge feature-refactor branch + iOS-step branch**
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git checkout m1-step5-ios
 git merge --no-ff m1-step5-feature-refactor -m "merge: feature refactor consumes shared content"
 git checkout m1-foundation
@@ -2032,7 +2032,7 @@ git branch -d m1-step5-feature-refactor m1-step5-ios
 - [ ] **Step 1: Worktree**
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git worktree add ../rizq-m1-step6-purge -b m1-step6-dead-code-purge m1-foundation
 cd ../rizq-m1-step6-purge
 ```
@@ -2075,7 +2075,7 @@ git commit -m "chore(ios): purge legacy Neon clients and rollback procedure"
 - [ ] **Step 8: Merge**
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git checkout m1-foundation
 git merge --no-ff m1-step6-dead-code-purge -m "merge: m1 step 6 dead code purge"
 git push
@@ -2096,7 +2096,7 @@ git branch -d m1-step6-dead-code-purge
 ### Task 7.1: Create Step 7 base + parallel worktrees
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git checkout m1-foundation
 git checkout -b m1-step7-housekeeping
 git worktree add ../rizq-m1-step7-settings -b m1-step7-settings-reset m1-step7-housekeeping
@@ -2235,7 +2235,7 @@ git commit -m "chore(repo): gitignore firebase debug logs and autoforge director
 **Agent type:** Single — orchestrator
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git checkout m1-step7-housekeeping
 git merge --no-ff m1-step7-settings-reset -m "merge: settings reset progress wired"
 git merge --no-ff m1-step7-repo-cleanup -m "merge: repo cleanup"
@@ -2283,7 +2283,7 @@ Re-verify the full success criteria list with eyes on the running app. Productio
 - [ ] **Step 5: Merge to main**
 
 ```bash
-cd "/Users/omairdawood/Projects/RIZQ App"
+cd "$(git rev-parse --show-toplevel)"
 git checkout main
 git merge --no-ff m1-foundation -m "feat: Milestone 1 — Foundation (web → Firestore + Firebase Auth, iOS ContentFeature/CachedContentClient refactor)"
 git push

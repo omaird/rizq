@@ -13,8 +13,8 @@ A gamified Islamic dua (supplication) practice and habit-tracking app. Users pra
 ### 1. Clone and Install Dependencies
 
 ```bash
-git clone <YOUR_GIT_URL>
-cd razzaq-app
+git clone https://github.com/omaird/rizq.git
+cd rizq
 npm install
 ```
 
@@ -189,4 +189,4 @@ Typography uses Crimson Pro (body), Playfair Display (headings), and Amiri (Arab
 
 ## License
 
-This project is private and not licensed for public use.
+MIT. See [LICENSE](LICENSE).

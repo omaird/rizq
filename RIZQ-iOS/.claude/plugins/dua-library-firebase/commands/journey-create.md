@@ -145,7 +145,7 @@ cat > /tmp/new-journey.json << 'EOF'
 EOF
 
 # Run the add script
-cd /Users/omairdawood/Projects/RIZQ\ App && node scripts/add-journey.cjs /tmp/new-journey.json
+cd "$(git rev-parse --show-toplevel)" && node scripts/add-journey.cjs /tmp/new-journey.json
 ```
 
 ## Step 8: Confirm Success

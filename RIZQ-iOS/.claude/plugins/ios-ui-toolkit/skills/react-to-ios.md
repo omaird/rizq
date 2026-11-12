@@ -11,9 +11,9 @@ This skill helps translate React components from the RIZQ web app to SwiftUI for
 
 | Platform | Path |
 |----------|------|
-| React Web App | `/Users/omairdawood/Projects/RIZQ App/src/` |
-| iOS App | `/Users/omairdawood/Projects/RIZQ App/RIZQ-iOS/RIZQ/` |
-| iOS Framework | `/Users/omairdawood/Projects/RIZQ App/RIZQ-iOS/RIZQKit/` |
+| React Web App | `<repo root>/src/` |
+| iOS App | `<repo root>/RIZQ-iOS/RIZQ/` |
+| iOS Framework | `<repo root>/RIZQ-iOS/RIZQKit/` |
 
 ## Translation Process
 
@@ -22,7 +22,7 @@ This skill helps translate React components from the RIZQ web app to SwiftUI for
 First, read and understand the React component:
 ```bash
 # Example: Read the React home page
-Read /Users/omairdawood/Projects/RIZQ\ App/src/pages/HomePage.tsx
+Read "$(git rev-parse --show-toplevel)"/src/pages/HomePage.tsx
 ```
 
 ### Step 2: Identify Key Elements

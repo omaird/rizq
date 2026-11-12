@@ -119,3 +119,6 @@ test-results/
 # External sub-projects (not part of RIZQ)
 # -------------------------------------------
 autoforge/
+
+# Old nested copy of the app, not part of this repo
+Rizqapp/

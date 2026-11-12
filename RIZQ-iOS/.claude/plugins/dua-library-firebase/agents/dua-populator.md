@@ -132,7 +132,7 @@ cat > /tmp/dua-to-add.json << 'EOF'
 }
 EOF
 
-cd /Users/omairdawood/Projects/RIZQ\ App && node scripts/add-dua.cjs /tmp/dua-to-add.json
+cd "$(git rev-parse --show-toplevel)" && node scripts/add-dua.cjs /tmp/dua-to-add.json
 ```
 
 ## XP Value Guidelines
@@ -168,7 +168,7 @@ cat > /tmp/batch-duas.json << 'EOF'
 }
 EOF
 
-cd /Users/omairdawood/Projects/RIZQ\ App && node scripts/batch-add-duas.cjs /tmp/batch-duas.json
+cd "$(git rev-parse --show-toplevel)" && node scripts/batch-add-duas.cjs /tmp/batch-duas.json
 ```
 
 ## Data Validation Rules
